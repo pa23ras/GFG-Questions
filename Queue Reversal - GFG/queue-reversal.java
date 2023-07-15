@@ -51,19 +51,22 @@ class Reversing{
 /*Complete the function below*/
 class GfG{
     //Function to reverse the queue.
-    public Queue<Integer> rev(Queue<Integer> queue){
+    public Queue<Integer> rev(Queue<Integer> q){
         //add code here.
-         Stack<Integer> stack = new Stack<>();
-
-        // Push elements from queue to stack
-        while (!queue.isEmpty()) {
-            stack.push(queue.poll());
+         Stack<Integer> st = new Stack<>();
+         
+         
+        while(q.size()!=0){
+             // Push elements from queue to stack
+            st.push(q.remove());
         }
-
-        // Pop elements from stack and enqueue them back to the queue
-        while (!stack.isEmpty()) {
-            queue.offer(stack.pop());
+        
+        
+        while(st.size()!=0){
+             // Pop elements from stack and enqueue them back to the queue
+            q.add(st.peek());
+            st.pop();
         }
-        return queue;
+        return q;
     }
 }
